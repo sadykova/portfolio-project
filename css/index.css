@@ -13,6 +13,7 @@ body {
   /* Customize font family to Dosis */
   font-family: "Dosis", sans-serif;
   line-height: 1.6;
+  font-size: 1.5rem;
 }
 
 /* Add padding to sections */
@@ -31,6 +32,10 @@ h2 {
 
 li {
   list-style: none;
+}
+
+p {
+  font-size: 1.5rem;
 }
 
 .highlight {
@@ -99,7 +104,6 @@ nav a:hover {
 
 #card p {
   font-weight: 700;
-  font-size: 1.2rem;
   line-height: 2rem;
 }
 
