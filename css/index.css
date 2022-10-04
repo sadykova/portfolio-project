@@ -13,19 +13,19 @@ body {
   /* Customize font family to Dosis */
   font-family: "Dosis", sans-serif;
   line-height: 1.6;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 /* Add padding to sections */
 section {
   padding: 10px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* Change the font size, weight, and color of all headings */
 h2 {
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #363636;
 }
@@ -35,7 +35,7 @@ li {
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .highlight {
@@ -175,6 +175,7 @@ img {
 }
 
 /* Projects section */
+
 #projects p {
   margin-bottom: 20px;
   font-size: 1.2rem;
@@ -270,10 +271,20 @@ form {
   width: 30vw;
 }
 
+.messagesLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100vw;
+}
+
 .messageLayout {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: left;
+  gap: 2rem;
+  width: 400px;
 }
 
 .remove-btn {
@@ -283,15 +294,29 @@ form {
   background-color: #ff0000;
   color: #fff;
   cursor: pointer;
+  height: 50px;
+  width: 70px;
+  text-align: center;
+  padding: 8px;
 }
-.remove-btn:hover {
-  color: #00008b;
+
+.edit-btn {
+  padding: 10px 20px;
+  border-radius: 5%;
+  border: none;
+  background-color: navy;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  width: 70px;
+  text-align: center;
+  padding: 5px;
 }
 
 /* footer */
 footer {
   background-color: #000080;
-  height: 15vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -323,6 +348,14 @@ footer p {
 
 .social .fab:hover::before {
   background: #ffbf00;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 /* Adding media queries */

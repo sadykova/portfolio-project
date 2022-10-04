@@ -80,15 +80,17 @@ for (let i = 0; i < messageForm.length; i++) {
     let name = event.target.name.value;
     let userEmail = event.target.email.value;
     let userMessage = event.target.message.value;
-    console.log(name, userEmail, userMessage);
     // Display Message List
     let currentdate = new Date();
     const messageSection = document.getElementById("messages");
+    messageSection.setAttribute("style", "display:block");
     const messageList = messageSection.querySelector("ul");
     const newMessage = document.createElement("li");
     const messageContainer = document.createElement("div");
+    messageList.classList.add("messagesLayout");
     newMessage.classList.add("messageLayout");
     messageContainer.innerHTML = `<p><span class='strong'>"${userMessage}"</span></p> <a href='mailto:${userEmail}'>${name}</a> posted on ${currentdate.getDate()}/${currentdate.getMonth()}/${currentdate.getFullYear()} at ${currentdate.getHours()}:${currentdate.getMinutes()}`;
+    // add remove button
     const removeButton = document.createElement("button");
     removeButton.classList.add("remove-btn");
     removeButton.innerText = "remove";
@@ -96,11 +98,30 @@ for (let i = 0; i < messageForm.length; i++) {
       const entry = removeButton.parentNode;
       // remove element
       entry.remove();
+      if (messageList.childElementCount === 0) {
+        messageSection.setAttribute("style", "display:none");
+      }
+    });
+    // add edit button
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-btn");
+    editButton.innerText = "edit";
+    editButton.addEventListener("click", function (event) {
+      newMessage.remove();
+      const nameElement = document.querySelector("[name=name]");
+      nameElement.value = name;
+      const emailElement = document.querySelector("[name=email]");
+      emailElement.value = userEmail;
+      const messageElement = document.querySelector("[name=message]");
+      messageElement.value = userMessage;
+      if (messageList.childElementCount === 0) {
+        messageSection.setAttribute("style", "display:none");
+      }
     });
     newMessage.appendChild(messageContainer);
     newMessage.appendChild(removeButton);
+    newMessage.appendChild(editButton);
     messageList.appendChild(newMessage);
-
     messageForm[i].reset();
   });
 }
